@@ -37,7 +37,7 @@ public class Employee {
 	
 	private String dep;
 	
-	private Double Salary;
+	private Double salary;
 	
 	private LocalDate joiningDate;
 	

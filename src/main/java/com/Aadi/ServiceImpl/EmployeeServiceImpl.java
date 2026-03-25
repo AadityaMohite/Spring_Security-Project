@@ -225,5 +225,32 @@ public class EmployeeServiceImpl implements EmployeeService{
 		}else {
 			return employees;
 		}
+	}
+
+
+	@Override
+	public List<Employee> getEmployeeBygender(String gender) {
+		 List<Employee> employees =  employeeRepository.findByGender(gender);
+		 
+		 if(employees.isEmpty()) {
+			 throw new EmployeeNotFoundException("Employee is not found ");
+		 }else {
+			 return employees;
+		 }
+	
+	}
+
+
+	@Override
+	public List<Employee> getEmployeeBysalary(Double salary) {
+	List<Employee> employees =	employeeRepository.findBySalary(salary);
+	
+	if(employees.isEmpty()) {
+		throw new EmployeeNotFoundException("Employee is not found at this Salary: "+salary);
+	}else {
+		return employees;
+	}
 	}  
+	
+	
 }

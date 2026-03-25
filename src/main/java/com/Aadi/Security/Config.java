@@ -63,6 +63,9 @@ public class Config {
 			auth.requestMatchers("/api/v1/employee/byfirstname").hasRole("USER");
 			auth.requestMatchers("/api/v1/employee/bydesignation").hasRole("USER");
 			auth.requestMatchers("/api/v1/employee/byage").hasRole("USER");
+			auth.requestMatchers("/api/v1/employee/byaddress").hasRole("USER");
+			auth.requestMatchers("/api/v1/employee/bygender").hasRole("USER");
+			auth.requestMatchers("/api/v1/employee/bysalary").hasRole("USER");
 			auth.requestMatchers("/auth/save-user").permitAll();
 		});
 		

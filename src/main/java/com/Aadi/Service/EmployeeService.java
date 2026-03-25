@@ -25,5 +25,9 @@ List<Employee> getEmployeeBydesignation(String designation);
       List<Employee> getEmployeeByage(Integer age);
       
       List<Employee> getEmployeeByaddress( String address);
+      
+      List<Employee> getEmployeeBygender(String gender);
+      
+      List<Employee> getEmployeeBysalary(Double salary);
 	
 }

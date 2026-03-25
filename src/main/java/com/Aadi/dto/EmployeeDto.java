@@ -22,7 +22,7 @@ private String firstname;
 	
 	private String mobileno;
 	
-	private Double Salary;
+	private Double salary;
 	
 	private LocalDate joiningDate;
 	

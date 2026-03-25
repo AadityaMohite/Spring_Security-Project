@@ -108,4 +108,17 @@ public class EmployeeRestcontroller {
 		List<Employee> employees  = employeeService.getEmployeeByaddress(address);
 		return new ResponseEntity<List<Employee>>(employees,HttpStatus.OK);
 	}
+	
+	@GetMapping("/bygender")
+	public ResponseEntity<List<Employee>> getemployeeBygender(@RequestParam String gender){
+		List<Employee> employees = employeeService.getEmployeeBygender(gender);
+		
+		return new ResponseEntity<List<Employee>>(employees,HttpStatus.OK);
+	}
+	
+	@GetMapping("/bysalary")
+	public ResponseEntity<List<Employee>> getEmployeeBysalary(@RequestParam Double salary){
+	List<Employee> employee	= employeeService.getEmployeeBysalary(salary);
+	   return new ResponseEntity<List<Employee>>(employee,HttpStatus.OK);
+	}
 }
