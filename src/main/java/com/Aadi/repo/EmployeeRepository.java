@@ -16,5 +16,5 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 	
 	List<Employee> findByAge(Integer age);
 	
-	
+	List<Employee> findByAddress(String address);
 }

@@ -102,4 +102,10 @@ public class EmployeeRestcontroller {
 		return new ResponseEntity<List<Employee>>(employees,HttpStatus.OK);
 		
 	}
+	
+	@GetMapping("/byaddress")
+	public ResponseEntity<List<Employee>> getemployeeByaddress(@RequestParam String address){
+		List<Employee> employees  = employeeService.getEmployeeByaddress(address);
+		return new ResponseEntity<List<Employee>>(employees,HttpStatus.OK);
+	}
 }

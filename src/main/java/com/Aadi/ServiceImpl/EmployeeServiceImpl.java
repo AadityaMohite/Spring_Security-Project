@@ -214,5 +214,16 @@ public class EmployeeServiceImpl implements EmployeeService{
 	}else {
 		throw new EmployeeNotFoundException("Employee is Not found for this Age: "+age);
 	}
+	}
+
+
+	@Override
+	public List<Employee> getEmployeeByaddress(String address) {
+		List<Employee> employees =  employeeRepository.findByAddress(address);
+		if(employees.isEmpty()) {
+			throw new EmployeeNotFoundException("Employee is not found at this address"+address);
+		}else {
+			return employees;
+		}
 	}  
 }
