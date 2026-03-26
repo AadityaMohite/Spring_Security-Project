@@ -3,6 +3,8 @@ package com.Aadi.ServiceImpl;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import com.Aadi.Service.EmployeeService;
@@ -23,55 +25,19 @@ public class EmployeeServiceImpl implements EmployeeService{
 
 	@Override
 	public EmployeeDto saveemployee(EmployeeDto employeeDto) {
-		
-		Employee employee = new Employee();
-		
-		
-		employee.setFirstname(employeeDto.getFirstname());
-		employee.setLastname(employeeDto.getLastname());
-		employee.setEmail(employeeDto.getEmail());
-		employee.setMobileno(employeeDto.getMobileno());
-		employee.setAddress(employeeDto.getAddress());
-		employee.setAge(employeeDto.getAge());
-		employee.setDep(employeeDto.getDep());
-		employee.setDesignation(employeeDto.getDesignation());
-		employee.setDoB(employeeDto.getDoB());
-		employee.setEducationqualification(employeeDto.getEducationqualification());
-		employee.setExperience(employeeDto.getExperience());
-		employee.setSalary(employeeDto.getSalary());
-		employee.setGender(employeeDto.getGender());
-		employee.setIsMarried(employeeDto.getIsMarried());
-        employee.setStatus(employeeDto.getStatus());
-        employee.setStatus(employeeDto.getStatus());
-        employee.setJoiningDate(employeeDto.getJoiningDate());
-        
-        
-      Employee saveemployee   =   employeeRepository.save(employee);
-		
-      employeeDto.setFirstname(saveemployee.getFirstname());
-		employeeDto.setLastname(saveemployee.getLastname());
-		employeeDto.setEmail(saveemployee.getEmail());
-		employeeDto.setMobileno(saveemployee.getMobileno());
-		employeeDto.setAddress(saveemployee.getAddress());
-		employeeDto.setAge(saveemployee.getAge());
-		employeeDto.setDep(saveemployee.getDep());
-		employeeDto.setDesignation(saveemployee.getDesignation());
-		employeeDto.setDoB(saveemployee.getDoB());
-		employeeDto.setEducationqualification(saveemployee.getEducationqualification());
-		employeeDto.setExperience(saveemployee.getExperience());
-		employeeDto.setSalary(saveemployee.getSalary());
-		employeeDto.setGender(saveemployee.getGender());
-		employeeDto.setIsMarried(saveemployee.getIsMarried());
-      employeeDto.setStatus(saveemployee.getStatus());
-      employeeDto.setStatus(saveemployee.getStatus());
-      employeeDto.setJoiningDate(saveemployee.getJoiningDate());
-		
-		
-		
-		
-		return employeeDto;
-	}
 
+	    // DTO → Entity
+	    Employee employee = new Employee();
+	    BeanUtils.copyProperties(employeeDto, employee);
+
+	    // Save
+	    Employee savedEmployee = employeeRepository.save(employee);
+
+	    // Entity → DTO
+	    BeanUtils.copyProperties(savedEmployee, employeeDto);
+
+	    return employeeDto;
+	}
 
 	@Override
 	public List<Employee> getEmployees() {
