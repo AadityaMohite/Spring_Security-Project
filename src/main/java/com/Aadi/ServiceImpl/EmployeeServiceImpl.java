@@ -78,45 +78,11 @@ public class EmployeeServiceImpl implements EmployeeService{
 		        	   
 		        	          Employee  employee2  =  employee.get();
 		        	   
-		        	   employee2.setFirstname(employeeDto.getFirstname());
-		       		employee2.setLastname(employeeDto.getLastname());
-		       		employee2.setEmail(employeeDto.getEmail());
-		       		employee2.setMobileno(employeeDto.getMobileno());
-		       		employee2.setAddress(employeeDto.getAddress());
-		       		employee2.setAge(employeeDto.getAge());
-		       		employee2.setDep(employeeDto.getDep());
-		       		employee2.setDesignation(employeeDto.getDesignation());
-		       		employee2.setDoB(employeeDto.getDoB());
-		       		employee2.setEducationqualification(employeeDto.getEducationqualification());
-		       		employee2.setExperience(employeeDto.getExperience());
-		       		employee2.setSalary(employeeDto.getSalary());
-		       		employee2.setGender(employeeDto.getGender());
-		       		employee2.setIsMarried(employeeDto.getIsMarried());
-		               employee2.setStatus(employeeDto.getStatus());
-		               employee2.setStatus(employeeDto.getStatus());
-		               employee2.setJoiningDate(employeeDto.getJoiningDate());
-		        	   
+		        	   BeanUtils.copyProperties(employeeDto, employee2);		        	   
 		               
 		               Employee  updateemployee  =  employeeRepository.save(employee2);
 		               
-		               employeeDto.setFirstname(updateemployee.getFirstname());
-		       		employeeDto.setLastname(updateemployee.getLastname());
-		       		employeeDto.setEmail(updateemployee.getEmail());
-		       		employeeDto.setMobileno(updateemployee.getMobileno());
-		       		employeeDto.setAddress(updateemployee.getAddress());
-		       		employeeDto.setAge(updateemployee.getAge());
-		       		employeeDto.setDep(updateemployee.getDep());
-		       		employeeDto.setDesignation(updateemployee.getDesignation());
-		       		employeeDto.setDoB(updateemployee.getDoB());
-		       		employeeDto.setEducationqualification(updateemployee.getEducationqualification());
-		       		employeeDto.setExperience(updateemployee.getExperience());
-		       		employeeDto.setSalary(updateemployee.getSalary());
-		       		employeeDto.setGender(updateemployee.getGender());
-		       		employeeDto.setIsMarried(updateemployee.getIsMarried());
-		             employeeDto.setStatus(updateemployee.getStatus());
-		             employeeDto.setStatus(updateemployee.getStatus());
-		             employeeDto.setJoiningDate(updateemployee.getJoiningDate());
-		             
+		               BeanUtils.copyProperties(employee2, updateemployee);
 		             
 		             return  employeeDto;
 		               
